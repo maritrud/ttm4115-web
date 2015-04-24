@@ -19,15 +19,16 @@ include_once 'includes/db_connect.php';
     	<table class="table">
     	<tr class="active">
     		<th>#</th>
+    		<th>Name</th>
     		<th>Status</th>
-    		<th>Description</th>
+            <th>Time of last event</th>
     	</tr>
 	    <?php
 	    	
             $results = $mysqli->query("SELECT * FROM lds");
 
 			while ($row = $results->fetchArray()) {
-                if ($row[status]) {
+                if ($row['status']) {
                     $status = "Free";
 				    echo '<tr class="success">';
                 } else {
@@ -35,9 +36,10 @@ include_once 'includes/db_connect.php';
                     echo '<tr class="busy">';
                 }
 		        echo "<th>".$row['id']."</th>";
-
+                echo "<td>".$row['name']."</td>";
                 echo '<td>'.$status.'</td>';
-		        echo "<td>".$row['description']."</td>";
+		        echo "<td>".$row['timestamp']."</td>";
+
 
 				echo "</tr>";
 			}
