@@ -23,6 +23,8 @@ include_once 'includes/db_connect.php';
     		<th>Description</th>
     	</tr> -->
 	    <?php
+
+            $toiletStatus = implode("-", $toiletStatus);
             echo $toiletStatus;
 	  //   	$results = $db->query("SELECT * FROM lds");
 
