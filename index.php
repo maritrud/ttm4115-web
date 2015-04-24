@@ -24,8 +24,8 @@ include_once 'includes/db_connect.php';
     	</tr> -->
 	    <?php
 
-            $toiletStatus = implode("-", $toiletStatus);
-            echo $toiletStatus;
+            $skrivUt = implode("-", $toiletStatus);
+            echo $skrivUt;
 	  //   	$results = $db->query("SELECT * FROM lds");
 
 			// while ($row = $results->fetchArray()) {

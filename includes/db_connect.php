@@ -1,30 +1,32 @@
 <?php
 
+//Gjør først en sjekk på om verdiene fra fil er oppdatert 	if ($previousList != $listFromDatabase){
 
+$previousList = "";
 
-#MÅ LAGE EN METODE
+function makeArrayFromFile(){
+	
+	$stringFromDatabase = file_get_contents("/var/www/includes/database.txt");
+	$arrayFromDatabase = explode("\n", $stringFromDatabase);
 
+	$toiletStatus = array();
 
-	$listFromDatabase = file_get_contents("/var/www/includes/database.txt");
-	$previousList = "";
+	while ($arrayFromDatabase) {
 
-	#Dersom det har blitt gjort noen endringer i databasen vil listen oppdateres
-	if ($previousList != $listFromDatabase){
-		
-		$arrayFromDatabase = explode(" ", $listFromDatabase);
+		$currentLine = array_shift($toiletStatus);
+		$currentLine = explode(" ", $currentLine);
 
-		$toiletStatus = array();
+		$id = array_shift($currentLine);
+		$description = array_shift($currentLine);
+		$status = array_shift($currentLine);
+		$time = array_shift($currentLine);
 
-		while ($arrayFromDatabase) {
-			$id = array_shift($arrayFromDatabase);
-			$description = array_shift($arrayFromDatabase);
-			$status = array_shift($arrayFromDatabase);
-			$time = array_shift($arrayFromDatabase);
-
-			$newStatus = array($id, $description, $status, $time);
-			array_push($toiletStatus, $newStatus);
+		$newStatus = array($id, $description, $status, $time);
+		array_push($toiletStatus, $newStatus);
 		}
 
-		#$previousList = $listFromDatabase;
-	}
+	$previousList = $stringFromDatabase;
+}
+
+
 
