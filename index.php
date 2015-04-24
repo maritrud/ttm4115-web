@@ -25,7 +25,7 @@ include_once 'includes/db_connect.php';
     	</tr>
 	    <?php
 	    	
-            $results = $mysqli->query("SELECT * FROM lds");
+            $results = $mysqli->query("SELECT * FROM lds_unit");
 
 			while ($row = $results->fetchArray()) {
                 if ($row['status']) {
