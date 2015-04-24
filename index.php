@@ -36,9 +36,9 @@ include_once 'includes/db_connect.php';
                     echo '<tr class="busy">';
                 }
 		        echo "<th>".$row['id']."</th>";
-                echo "<td>".$row['name']."</td>";
+                echo "<td>".$row['navn']."</td>";
                 echo '<td>'.$status.'</td>';
-		        echo "<td>".$row['timestamp']."</td>";
+		        echo "<td>".$row['time']."</td>";
 
 
 				echo "</tr>";
