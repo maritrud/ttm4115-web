@@ -7,7 +7,11 @@ $previousList = "";
 function makeArrayFromFile(){
 	
 	$lines = fopen("/var/www/includes/database.txt", "r");
-	$toiletStatus = array();
+
+	foreach(file("/var/www/includes/database.txt") as $line) {
+	   echo $line. '\n';
+	}
+/*	$toiletStatus = array();
 
 	if($lines){
 		while(($line = fgets($lines)) !== false){
@@ -29,7 +33,7 @@ function makeArrayFromFile(){
 	}
 
 	$previousList = $lines;
-	fclose($lines);
+	fclose($lines);*/
 
 }
 
