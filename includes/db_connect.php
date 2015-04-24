@@ -5,7 +5,7 @@
 #MÅ LAGE EN METODE
 
 
-	$listFromDatabase = readfile("database.txt");
+	$listFromDatabase = file_get_contents("database.txt");
 	$previousList = "";
 
 	#Dersom det har blitt gjort noen endringer i databasen vil listen oppdateres
