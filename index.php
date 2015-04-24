@@ -23,6 +23,9 @@ include_once 'includes/db_connect.php';
     		<th>Description</th>
     	</tr> -->
 	    <?php
+            //Må sjekke om databasen er oppdatert. HVis ikke
+
+            makeArrayFromFile();
 
             $skrivUt = implode("-", $toiletStatus);
             echo $skrivUt;
