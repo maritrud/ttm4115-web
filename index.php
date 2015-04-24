@@ -31,18 +31,29 @@ include_once 'includes/db_connect.php';
                 if ($row['status']) {
                     $status = "Free";
 				    echo '<tr class="success">';
-                } else {
+               
+    		        echo "<th>".$row['id']."</th>";
+                    echo "<td>".$row['navn']."</td>";
+                    echo '<td>'.$status.'</td>';
+    		        echo "<td>".$row['time']."</td>";
+
+    				echo "</tr>";
+                }
+			}
+
+            while ($row = $results->fetch_array()) {
+                if (!$row['status']) {
                     $status = "Taken";
                     echo '<tr class="busy">';
+              
+                    echo "<th>".$row['id']."</th>";
+                    echo "<td>".$row['navn']."</td>";
+                    echo '<td>'.$status.'</td>';
+                    echo "<td>".$row['time']."</td>";
+
+                    echo "</tr>";
                 }
-		        echo "<th>".$row['id']."</th>";
-                echo "<td>".$row['navn']."</td>";
-                echo '<td>'.$status.'</td>';
-		        echo "<td>".$row['time']."</td>";
-
-
-				echo "</tr>";
-			}
+            }
 
 	    ?>
 	    </table>
