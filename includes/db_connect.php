@@ -13,7 +13,7 @@ function makeArrayFromFile(){
 		while(($line = fgets($lines)) !== false){
 			$currentLine = explode(" ", $line);
 
-			echo $currentLine;
+			echo $lines;
 
 			$id = array_shift($currentLine);
 			$description = array_shift($currentLine);
