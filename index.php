@@ -27,7 +27,7 @@ include_once 'includes/db_connect.php';
 	    	
             $results = $mysqli->query("SELECT * FROM lds_unit");
 
-			while ($row = $results->fetchArray()) {
+			while ($row = $results->fetch_array()) {
                 if ($row['status']) {
                     $status = "Free";
 				    echo '<tr class="success">';
