@@ -5,40 +5,21 @@
 $previousList = "";
 
 function makeArrayFromFile(){
-	
-	$lines = fopen("/var/www/includes/database.txt", "r");
+
+	$availabilityList = array();
 
 	foreach(file("/var/www/includes/database.txt") as $line) {
-	   echo $line. '\n';
+		$currentLine = explode(" ", $line);
+
+		$id = $currentLine[0];
+		$description = $currentLine[1];
+		$status = $currentLine[2];
+		$time = $currentLine[3];
+
+		array_push($toiletStatus, array($id, $description, $status, $time));
+
 	}
-/*	$toiletStatus = array();
-
-	if($lines){
-		while(($line = fgets($lines)) !== false){
-			$currentLine = explode(" ", $line);
-
-			echo $lines;
-
-			$id = array_shift($currentLine);
-			$description = array_shift($currentLine);
-			$status = array_shift($currentLine);
-			$time = array_shift($currentLine);
-
-			$newStatus = array($id, $description, $status, $time);
-			array_push($toiletStatus, $newStatus);
-
-		}
-	}else{
-		echo "Du suger";
-	}
-
-	$previousList = $lines;
-	fclose($lines);*/
-
 }
-
-
-
 
 
 
