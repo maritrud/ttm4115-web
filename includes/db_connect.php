@@ -11,7 +11,7 @@ function makeArrayFromFile(){
 
 	$toiletStatus = array();
 
-	while ($arrayFromDatabase) {
+	while (!empty($arrayFromDatabase)) {
 
 		$currentLine = array_shift($toiletStatus);
 		$currentLine = explode(" ", $currentLine);
