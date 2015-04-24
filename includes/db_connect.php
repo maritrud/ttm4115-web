@@ -6,27 +6,56 @@ $previousList = "";
 
 function makeArrayFromFile(){
 	
-	$stringFromDatabase = file_get_contents("/var/www/includes/database.txt");
-	$arrayFromDatabase = explode("\n", $stringFromDatabase);
-
+	$lines = fopen("/var/www/includes/database.txt");
 	$toiletStatus = array();
 
-	while (!empty($arrayFromDatabase)) {
+	if($lines){
+		while(($line = fgets($lines)) !== false){
+			$currentLine = explode(" ", $line);
 
-		$current = array_shift($toiletStatus);
-		$currentLine = explode(" ", $current);
+			$id = array_shift($currentLine);
+			$description = array_shift($currentLine);
+			$status = array_shift($currentLine);
+			$time = array_shift($currentLine);
 
-		$id = array_shift($currentLine);
-		$description = array_shift($currentLine);
-		$status = array_shift($currentLine);
-		$time = array_shift($currentLine);
+			$newStatus = array($id, $description, $status, $time);
+			array_push($toiletStatus, $newStatus);
 
-		$newStatus = array($id, $description, $status, $time);
-		array_push($toiletStatus, $newStatus);
 		}
+	}else{
+		echo "Du suger";
+	}
 
-	$previousList = $stringFromDatabase;
+	$previousList = $lines;
+
 }
+
+
+
+
+
+
+// 	$stringFromDatabase = file_get_contents("/var/www/includes/database.txt");
+// 	$arrayFromDatabase = explode("\n", $stringFromDatabase);
+
+// 	$toiletStatus = array();
+
+// 	while (!empty($arrayFromDatabase)) {
+
+// 		$current = array_shift($toiletStatus);
+// 		$currentLine = explode(" ", $current);
+
+// 		$id = array_shift($currentLine);
+// 		$description = array_shift($currentLine);
+// 		$status = array_shift($currentLine);
+// 		$time = array_shift($currentLine);
+
+// 		$newStatus = array($id, $description, $status, $time);
+// 		array_push($toiletStatus, $newStatus);
+// 		}
+
+// 	$previousList = $stringFromDatabase;
+// }
 
 
 
