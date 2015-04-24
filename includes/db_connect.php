@@ -13,8 +13,8 @@ function makeArrayFromFile(){
 
 	while (!empty($arrayFromDatabase)) {
 
-		$currentLine = array_shift($toiletStatus);
-		$currentLine = explode(" ", $currentLine);
+		$current = array_shift($toiletStatus);
+		$currentLine = explode(" ", $current);
 
 		$id = array_shift($currentLine);
 		$description = array_shift($currentLine);
