@@ -9,6 +9,7 @@ function makeArrayFromFile(){
 	$availabilityList = array();
 
 	foreach(file("/var/www/includes/database.txt") as $line) {
+		echo $line;
 		$currentLine = explode(" ", $line);
 
 		$id = $currentLine[0];
