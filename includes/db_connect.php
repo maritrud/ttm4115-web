@@ -6,7 +6,7 @@
 
 
 	$listFromDatabase = readfile(database.txt);
-	
+	$previousList = "";
 
 	#Dersom det har blitt gjort noen endringer i databasen vil listen oppdateres
 	if ($previousList != $listFromDatabase){
