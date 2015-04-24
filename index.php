@@ -16,12 +16,12 @@ include_once 'includes/db_connect.php';
     <div class="col-md-2"></div>
     <div class="col-md-8">
     	<h1> Toilet availability system </h1>
-    	<table class="table">
+    	<!-- <table class="table">
     	<tr class="active">
     		<th>#</th>
     		<th>Status</th>
     		<th>Description</th>
-    	</tr>
+    	</tr> -->
 	    <?php
             echo $toiletStatus;
 	  //   	$results = $db->query("SELECT * FROM lds");
