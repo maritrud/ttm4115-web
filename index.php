@@ -23,23 +23,24 @@ include_once 'includes/db_connect.php';
     		<th>Description</th>
     	</tr>
 	    <?php
-	    	$results = $db->query("SELECT * FROM lds");
+            echo $toiletStatus;
+	  //   	$results = $db->query("SELECT * FROM lds");
 
-			while ($row = $results->fetchArray()) {
-                if ($row[status]) {
-                    $status = "Free";
-				    echo '<tr class="success">';
-                } else {
-                    $status = "Taken";
-                    echo '<tr class="busy">';
-                }
-		        echo "<th>".$row['id']."</th>";
+			// while ($row = $results->fetchArray()) {
+   //              if ($row[status]) {
+   //                  $status = "Free";
+			// 	    echo '<tr class="success">';
+   //              } else {
+   //                  $status = "Taken";
+   //                  echo '<tr class="busy">';
+   //              }
+		 //        echo "<th>".$row['id']."</th>";
 
-                echo '<td>'.$status.'</td>';
-		        echo "<td>".$row['description']."</td>";
+   //              echo '<td>'.$status.'</td>';
+		 //        echo "<td>".$row['description']."</td>";
 
-				echo "</tr>";
-			}
+			// 	echo "</tr>";
+			// }
 
 	    ?>
 	    </table>

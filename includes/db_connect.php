@@ -1,13 +1,30 @@
 <?php
 
-	class MyDB extends SQLite3
-	   {
-	      function __construct()
-	      {
-	         $this->open('/var/www/db/database.db');
-	      }
-	   }
-	   $db = new MyDB();
-	   if(!$db){
-	      echo $db->lastErrorMsg();
-	   }
+
+
+#MÅ LAGE EN METODE
+
+
+	$listFromDatabase = readfile(database.txt);
+	
+
+	#Dersom det har blitt gjort noen endringer i databasen vil listen oppdateres
+	if ($previousList != $listFromDatabase){
+		
+		$arrayFromDatabase = explode(" ", $listFromDatabase);
+
+		$toiletStatus = array();
+
+		while ($arrayFromDatabase) {
+			$id = array_shift($arrayFromDatabase);
+			$description = array_shift($arrayFromDatabase);
+			$status = array_shift($arrayFromDatabase);
+			$time = array_shift($arrayFromDatabase);
+
+			$newStatus = array($id, $description, $status, $time);
+			array_push($toiletStatus, $newStatus);
+		}
+
+		#$previousList = $listFromDatabase;
+	}
+
