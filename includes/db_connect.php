@@ -1,13 +1,6 @@
 <?php
 
-	class MyDB extends SQLite3
-	   {
-	      function __construct()
-	      {
-	         $this->open('/var/www/db/database.db');
-	      }
-	   }
-	   $db = new MyDB();
-	   if(!$db){
-	      echo $db->lastErrorMsg();
-	   }
+$mysqli = new mysqli($_SERVER['DB_HOST'], $_SERVER['DB_USER'], $_SERVER['DB_PASS'], $_SERVER['DB_DB']);
+if ($mysqli->connect_error) {
+	header("Unable to connect to MySQL");
+}

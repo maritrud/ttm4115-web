@@ -23,7 +23,8 @@ include_once 'includes/db_connect.php';
     		<th>Description</th>
     	</tr>
 	    <?php
-	    	$results = $db->query("SELECT * FROM lds");
+	    	
+            $results = $mysqli->query("SELECT * FROM lds");
 
 			while ($row = $results->fetchArray()) {
                 if ($row[status]) {
