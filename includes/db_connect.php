@@ -6,12 +6,14 @@ $previousList = "";
 
 function makeArrayFromFile(){
 	
-	$lines = fopen("/var/www/includes/database.txt");
+	$lines = fopen("/var/www/includes/database.txt", "r");
 	$toiletStatus = array();
 
 	if($lines){
 		while(($line = fgets($lines)) !== false){
 			$currentLine = explode(" ", $line);
+
+			echo $currentLine;
 
 			$id = array_shift($currentLine);
 			$description = array_shift($currentLine);
@@ -27,6 +29,7 @@ function makeArrayFromFile(){
 	}
 
 	$previousList = $lines;
+	fclose($lines);
 
 }
 
