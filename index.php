@@ -39,24 +39,24 @@ include_once 'includes/db_connect.php';
     		        echo "<td>".$row['time']."</td>";
     				echo "</tr>";
                 }else{
-                    array_push($taken, $row);
+                    $line = array($row['id'], $row['navn'], $status, $row['time']);
+                    array_push($taken, $line);
                 }
 			}
 
-            while ($row = $taken->fetch_array()) {
-
+            foreach ($taken as $row) {
                 if (! $row['status']) {
                     $status = "Taken";
                     echo '<tr class="busy">';
               
-                    echo "<th>".$row['id']."</th>";
-                    echo "<td>".$row['navn']."</td>";
-                    echo '<td>'.$status.'</td>';
-                    echo "<td>".$row['time']."</td>";
+                    echo "<th>".$row[0]."</th>";
+                    echo "<td>".$row[1]."</td>";
+                    echo '<td>'.$row[2].'</td>';
+                    echo "<td>".$row[3]."</td>";
 
                     echo "</tr>";
                 }
-            }
+             } 
 
 	    ?>
 	    </table>
