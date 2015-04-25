@@ -51,7 +51,7 @@ include_once 'includes/db_connect.php';
               
                     echo "<th>".$row[0]."</th>";
                     echo "<td>".$row[1]."</td>";
-                    echo '<td>'.$row[2].'</td>';
+                    echo '<td>'.$status.'</td>';
                     echo "<td>".$row[3]."</td>";
 
                     echo "</tr>";
