@@ -26,6 +26,7 @@ include_once 'includes/db_connect.php';
 	    <?php
 	    	
             $results = $mysqli->query("SELECT * FROM lds_unit");
+            $taken = array();
 
 			while ($row = $results->fetch_array()) {
                 if ($row['status']) {
@@ -36,14 +37,14 @@ include_once 'includes/db_connect.php';
                     echo "<td>".$row['navn']."</td>";
                     echo '<td>'.$status.'</td>';
     		        echo "<td>".$row['time']."</td>";
-
     				echo "</tr>";
+                }else{
+                    array_push($taken, $row);
                 }
 			}
 
-            while ($row = $results->fetch_array()) {
+            while ($row = $taken->fetch_array()) {
 
-                echo ! $row['status'];
                 if (! $row['status']) {
                     $status = "Taken";
                     echo '<tr class="busy">';
