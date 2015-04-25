@@ -42,7 +42,9 @@ include_once 'includes/db_connect.php';
 			}
 
             while ($row = $results->fetch_array()) {
-                if (!$row['status']) {
+
+                echo ! $row['status'];
+                if (! $row['status']) {
                     $status = "Taken";
                     echo '<tr class="busy">';
               
